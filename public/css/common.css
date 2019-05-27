@@ -1,0 +1,13 @@
+/* toast样式 */
+/* ajax 请求loading 状态 配合 ajax使用 */
+#ajax_shield{position:absolute;left:0;top:0;width:100%;text-align:center;z-index:100;opacity:1;}
+#alertFram{position:fixed;width:200px;min-height:30px;padding:.2rem .3rem;text-align:center;line-height: .42rem;z-index:999;background-color:#444;top:40%;left:50%;margin-left:-100px;opacity:0;font-size: .28rem;color:#fff;transform:scale(0.5,0.5);-webkit-transform:scale(0.5,0.5);-webkit-transition:all 0.3s linear;border-radius:.1rem;}
+#alertFram.success{width: 2rem; height: 2rem; margin-left: -1rem;}
+#alertFram .icon-ok{
+    display: inline-block;
+    width: .48rem;
+    height: .48rem;
+    background: url("../../../images/wap/base/icon-ok.png") no-repeat center;
+    background-size: .48rem .48rem;
+    margin-top: .26rem;
+}
