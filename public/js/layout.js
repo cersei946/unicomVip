@@ -113,13 +113,24 @@ $(function (){
             $(this).toggleClass('checked');
         })
     }
+    Login.prototype.getChannel = function (){
+        var loginUrl = window.location.href
+        if( loginUrl.indexOf('?') > -1 ){
+            var loginUrlArr = loginUrl.split('?');
+            if( loginUrlArr[1] && loginUrlArr[1].indexOf('=') > -1 ){
+                var channel = loginUrlArr[1].split('=')[1] ? loginUrlArr[1].split('=')[1] : 0 ;
+                // console.log(decodeURIComponent(channel) ? decodeURIComponent(channel) :channel);
+                return decodeURIComponent(channel) ? decodeURIComponent(channel) :channel;
+            }
+        }
+    }
     // 点击注册
     Login.prototype.onSubmit = function (){
         $('input[type=button]').on('click',function (){
             var data1 = {
                 phoneNumber: baseInfo.phone,
-                verCode: baseInfo.verify_code
-                // channel: login.getChannel()
+                verCode: baseInfo.verify_code,
+                number: login.getChannel()
             }
 
             // console.log(data1);
@@ -136,7 +147,8 @@ $(function (){
                     // console.log(typeof xhr);
                     if(xhr.code == 200){
                         hqmCommon.toast('注册成功');
-                        window.location.href = "http://v.ocoun.com/index/jumplink/index.html";
+                        
+                        window.location.href = "http://v.ocoun.com/index/jumplink/index.html?phone="+ data1.phoneNumber;
                     }else{
                         hqmCommon.toast(xhr.message);
                     }

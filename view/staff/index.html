@@ -15,8 +15,8 @@
         <div id="staff">
 					<div class="banner">
 						<img src="/static/index/images/staff/banner.png" alt="">
-						<p class="user_number">欢迎您，18709897897！</p>
-						<p class="user_id">北京市 001号推广员</p>
+						<p class="user_number">欢迎您，{$rs['mobile']}！</p>
+						<p class="user_id">北京市 {$rs['id']}号推广员</p>
 					</div>
 					<div class="main">
 						<div class="row">
@@ -25,7 +25,7 @@
 											<p>我的链接</p>	
 								</aside>
 								<aside>
-									<a href="javascript:;">
+									<a href="{$rs['push_url']}">
 											<img src="/static/index/images/staff/unciomvip.png" alt="">
 											<p>通往联通用户权益</p>
 									</a>
@@ -55,7 +55,7 @@
 										领取【9元】京东新人优惠券，确认收货后关注公众号立返1元，【零元购进行中】联通用户京东专属福利券领取中，专供联通用户独享！尽快领取！
 								</p>
 								<p >
-									<input id="linkmain" class="text_align_center " type="text" value="http://v.ocoun.com">
+									<input id="linkmain" class="text_align_center " type="text" value="{$rs['push_url']}">
 								</p>
 								<p class="text_indent margin_bottom">
 										快把活动分享给周围的朋友吧！一起来享受更多优惠！
@@ -74,7 +74,7 @@
 										x
 								</span>
 							<p>中国联通用户专属福利权益</p><p>扫码进入享福利！</p>
-							<img id="picurl" src="/static/index/images/staff/code.png" alt="">
+							<img id="picurl" src="http://v.ocoun.com/{$rs['qrcode']}" alt="">
 							<button class="save_code" >长按二维码保存到本地</button>
 						</div>
 					</div>
