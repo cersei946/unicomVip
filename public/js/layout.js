@@ -14,9 +14,7 @@ $(function (){
     var PAPM = {
         // 校验手机号是否有效
         regPhoneNumber: /^1[34578]\d{9}$/,
-        seconds: -1 ,
-        isLogin: false  // 初始值为false ，false为未登录   true为登录过
-
+        seconds: -1 
     };
 
     function Login (){}
@@ -92,29 +90,6 @@ $(function (){
             }
         })
     };
-    // 校验之前是否登录过
-    Login.prototype.isInitPhoneNumber = function (){
-        $('input[name=phoneNumber]').on('blur',function(){
-            // 如果手机号不为空，调用接口，判断此手机号是否登陆过
-            if( $('input[name=phoneNumber]').val() ){
-                var data = {
-                    phoneNumber:$('input[name=phoneNumber]').val()
-                }
-                hqmrequest.post('http://v.ocoun.com/index/staff/phone',data,function(xhr){
-                    if( xhr.code == 200 ){
-                        // 如果手机号登录过，隐藏邀请码这一栏
-                        $('.invite_li').fadeOut('slow');
-                        PAPM.isLogin = true ;
-                    } else {
-                        $('.invite_li').fadeIn('slow');
-                        PAPM.isLogin = false ;
-                        // hqmCommon.toast(xhr.message);
-                    }
-                })
-                
-            }
-        });
-    }
     // 校验验证码
     Login.prototype.verifyCode = function (){
         $('input[name=yzCode]').on('input', function () {
@@ -140,18 +115,14 @@ $(function (){
     }
     // 点击注册
     Login.prototype.onSubmit = function (){
-
         $('input[type=button]').on('click',function (){
             var data1 = {
                 phoneNumber: baseInfo.phone,
-                verCode: baseInfo.verify_code,
+                verCode: baseInfo.verify_code
+                // channel: login.getChannel()
             }
-            var data2 = {
-                phoneNumber: baseInfo.phone,
-                verCode: baseInfo.verify_code,
-                inviteNumber: $('input[name=inviteNumber]').val()
-            }
-            console.log(data1);
+
+            // console.log(data1);
             if(!data1.phoneNumber){
                 hqmCommon.toast('请输入正确的手机号！');
             } else if ( !data1.verCode ){
@@ -159,38 +130,17 @@ $(function (){
             } else if ( !$('.agree_li span').hasClass('checked') ){
                 hqmCommon.toast('请阅读并勾选接受条款！');
             } else {
-                console.log(PAPM.isLogin,'PAPM.isLogin')
-                // 已经登陆过
-                if( PAPM.isLogin ){
-                    // 调用接口
-                    hqmrequest.post('http://v.ocoun.com/index/staff/login_nocode',data1,function(xhr){
-                        console.log(xhr);
-                        console.log(typeof xhr);
-                        if(xhr.code == 200){
-                            hqmCommon.toast('登录成功');
-                            window.location.href = "http://v.ocoun.com/index/staff/index.html?phone="+ data1.phoneNumber;
-                        }else{
-                            hqmCommon.toast(xhr.message);
-                        }
-                    })
-                } else { 
-                    // 未登录过，判断是否填写邀请码
-                    if( !data2.inviteNumber ){
-                        hqmCommon.toast('请输入邀请码！');
-                    } else {
-                        hqmrequest.post('http://v.ocoun.com/index/staff/login',data2,function(xhr){
-                            // console.log(xhr);
-                            // console.log(typeof xhr);
-                            if(xhr.code == 200){
-                                hqmCommon.toast('登录成功');
-                                window.location.href = "http://v.ocoun.com/index/staff/index.html?phone="+ data2.phoneNumber;
-                            }else{
-                                hqmCommon.toast(xhr.message);
-                            }
-                        })
+                // 调用接口
+                hqmrequest.post('http://v.ocoun.com/index.php/admin/message/login',data1,function(xhr){
+                    // console.log(xhr);
+                    // console.log(typeof xhr);
+                    if(xhr.code == 200){
+                        hqmCommon.toast('注册成功');
+                        window.location.href = "http://v.ocoun.com/index/jumplink/index.html";
+                    }else{
+                        hqmCommon.toast(xhr.message);
                     }
-                }
-                
+                })
             }
         })
     }
@@ -201,7 +151,6 @@ $(function (){
             login.verifyPhone();
             login.verifyCode();
             login.agreeMent();
-            login.isInitPhoneNumber();
         },
         onsubmit: function (){
             login.onSubmit()

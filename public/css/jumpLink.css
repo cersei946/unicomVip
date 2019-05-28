@@ -30,7 +30,7 @@ body,html{
     width:100%; 
 }
 .main dl {
-    background: #fff;
+    background: rgb(255,247,247);
     width:72.6%;
     position: absolute;
     left:54%;
@@ -45,7 +45,7 @@ body,html{
 .main dt{
     padding:0rem .1rem;
     float: left;
-    max-width: 70%;
+    max-width: 60%;
 }
 .main dd img{
     width:100%;
@@ -54,11 +54,11 @@ body,html{
 .main dt h2{
     color:red;
     font-weight: bold;
-    font-size:.2rem;
+    font-size:.26rem;
 }
 .main dt p{
     color:#333;
-    font-size:.16rem;
+    font-size:.24rem;
     text-align: left;
 }
 .main dt a img{
