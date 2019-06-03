@@ -1,0 +1,64 @@
+#header{
+    width:100%;
+    height:.88rem;
+    line-height:.88rem;
+    font-size:.32rem;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top:0;
+    background:#fff;
+    color:#000;
+    letter-spacing: .02rem;
+}
+#coupons{
+    width:100%;
+    overflow: hidden;
+    background:rgb(244,241,239);
+}
+#myCarousel{
+    width:100%;
+    overflow: hidden;
+    margin-top:.88rem;
+}
+.nav-tabs{
+    margin-top:.1rem;
+}
+.main_list{
+    width:100%;
+    padding:.2rem;
+    box-sizing: border-box;  
+}
+.main_list li{
+    display: none;
+}
+.main_list a{
+    display: block;
+    width:100%;
+    padding: .2rem;
+    margin-bottom:.3rem;
+    box-sizing: border-box;
+    background:#fff;
+    border-radius: .2rem;
+
+}
+.main_list a img{
+    width:100%;
+
+}
+.main_list a header{
+    font-size:.3rem ;
+    color:#333;
+    line-height:.7rem;
+    font-weight: bold;
+}
+.main_list a p{
+    font-size:.24rem ;
+    color:#666;
+    line-height:.5rem;
+    margin-bottom:0;
+
+}
+.main_list .checkedBox{
+    display: block;
+}

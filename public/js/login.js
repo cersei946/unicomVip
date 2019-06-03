@@ -1,6 +1,6 @@
 
 /**
-* wap端-注册页面
+* wap端-推广员注册页面
 * author：wangbiguo
 * */
 $(function (){
@@ -104,9 +104,11 @@ $(function (){
                     if( xhr.code == 200 ){
                         // 如果手机号登录过，隐藏邀请码这一栏
                         $('.invite_li').fadeOut('slow');
+                        $('.agree_li').fadeOut('slow');
                         PAPM.isLogin = true ;
                     } else {
                         $('.invite_li').fadeIn('slow');
+                        $('.agree_li').fadeIn('slow');
                         PAPM.isLogin = false ;
                         // hqmCommon.toast(xhr.message);
                     }
@@ -151,21 +153,19 @@ $(function (){
                 verCode: baseInfo.verify_code,
                 inviteNumber: $('input[name=inviteNumber]').val()
             }
-            console.log(data1);
+            // console.log(data1);
             if(!data1.phoneNumber){
                 hqmCommon.toast('请输入正确的手机号！');
             } else if ( !data1.verCode ){
                 hqmCommon.toast('验证码不正确！');
-            } else if ( !$('.agree_li span').hasClass('checked') ){
-                hqmCommon.toast('请阅读并勾选接受条款！');
             } else {
-                console.log(PAPM.isLogin,'PAPM.isLogin')
+                // console.log(PAPM.isLogin,'PAPM.isLogin')
                 // 已经登陆过
                 if( PAPM.isLogin ){
                     // 调用接口
                     hqmrequest.post('http://v.ocoun.com/index/staff/login_nocode',data1,function(xhr){
-                        console.log(xhr);
-                        console.log(typeof xhr);
+                        // console.log(xhr);
+                        // console.log(typeof xhr);
                         if(xhr.code == 200){
                             hqmCommon.toast('登录成功');
                             window.location.href = "http://v.ocoun.com/index/staff/index.html?phone="+ data1.phoneNumber;
@@ -177,6 +177,8 @@ $(function (){
                     // 未登录过，判断是否填写邀请码
                     if( !data2.inviteNumber ){
                         hqmCommon.toast('请输入邀请码！');
+                    } else if ( !$('.agree_li span').hasClass('checked') ){
+                        hqmCommon.toast('请阅读并勾选接受条款！');
                     } else {
                         hqmrequest.post('http://v.ocoun.com/index/staff/login',data2,function(xhr){
                             // console.log(xhr);
