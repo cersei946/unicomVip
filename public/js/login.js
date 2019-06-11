@@ -167,8 +167,9 @@ $(function (){
                         // console.log(xhr);
                         // console.log(typeof xhr);
                         if(xhr.code == 200){
+                            var id = xhr.id ? xhr.id : '';
                             hqmCommon.toast('登录成功');
-                            window.location.href = "http://v.ocoun.com/index/staff/index.html?phone="+ data1.phoneNumber;
+                            window.location.href = "http://v.ocoun.com/index/staff/index.html?id="+ id;
                         }else{
                             hqmCommon.toast(xhr.message);
                         }
@@ -183,9 +184,11 @@ $(function (){
                         hqmrequest.post('http://v.ocoun.com/index/staff/login',data2,function(xhr){
                             // console.log(xhr);
                             // console.log(typeof xhr);
+                            
                             if(xhr.code == 200){
+                                var id = xhr.id ? xhr.id : '';
                                 hqmCommon.toast('登录成功');
-                                window.location.href = "http://v.ocoun.com/index/staff/index.html?phone="+ data2.phoneNumber;
+                                window.location.href = "http://v.ocoun.com/index/staff/index.html?id="+ id;
                             }else{
                                 hqmCommon.toast(xhr.message);
                             }

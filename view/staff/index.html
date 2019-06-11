@@ -6,41 +6,54 @@
 		<meta content="yes" name="apple-mobile-web-app-capable">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<title>中国联通用户专属福利权益</title>
-		<link rel="stylesheet" href="/static/index/css/base.css?v=1.1" />
-		<link rel="stylesheet" href="/static/index/css/common.css?v=1.1" />
-		<script type="text/javascript" src="/static/index/js/windowSize.js?v=1.1"></script>
-		<link rel="stylesheet" href="/static/index/css/staff.css?v=1.2" />
+		<link rel="stylesheet" href="/static/index/css/base.css?v=1.4" />
+		<link rel="stylesheet" href="/static/index/css/common.css?v=1.4" />
+		<script type="text/javascript" src="/static/index/js/windowSize.js?v=1.4"></script>
+		<link rel="stylesheet" href="/static/index/css/staff.css?v=1.4" />
     </head>
     <body>
         <div id="staff">
 					<div class="banner">
-						<img src="/static/index/images/staff/banner.png" alt="">
+						<img src="/static/index/images/staff/banner.png?v=1.4" alt="">
 						<p class="user_number">欢迎您，{$rs['mobile']}！</p>
-						<p class="user_id">北京市 {$rs['id']}号推广员</p>
+						<p class="user_id">{$rs['city']}  {$rs['id']}号推广员</p>
 					</div>
 					<div class="main">
 						<div class="row">
 								<aside class="link">
-											<img src="/static/index/images/staff/vercode.png" alt="">
+											<img src="/static/index/images/staff/vercode.png?v=1.4" alt="">
 											<p>我的链接</p>	
 								</aside>
 								<aside>
 									<a href="{$rs['push_url']}">
-											<img src="/static/index/images/staff/unciomvip.png" alt="">
+											<img src="/static/index/images/staff/unciomvip.png?v=1.4" alt="">
 											<p>通往联通用户权益</p>
 									</a>
 								</aside>
 						</div>
 						<div class="row">
 								<aside class="myQrcode">
-											<img src="/static/index/images/staff/myvercode.png" alt="">
+											<img src="/static/index/images/staff/myvercode.png?v=1.4" alt="">
 											<p>我的二维码</p>
 								</aside>
 								<aside>
-												<img src="/static/index/images/staff/news.png" alt="">
-												<p>消息中心</p>
+									<a href="../news/index.html">
+											<img src="/static/index/images/staff/news.png?v=1.4" alt="">
+											<p>京东0元购</p>
+											<p class="no_margin_top">用户操作说明</p>
+									</a>
 								</aside>
 						</div>
+						<div class="row">
+							<aside class="wx_code_box">
+										<img src="/static/index/images/staff/wx_img.png?v=1.4" alt="">
+										<p>微信公众号</p>
+							</aside>
+							<aside>
+										<!-- <img src="" alt=""> -->
+										<p></p>
+							</aside>
+					</div>
 					</div>
 					<div class="bounced_link display_none">
 						<div class="mark">
@@ -78,10 +91,20 @@
 							<button class="save_code" >长按二维码保存到本地</button>
 						</div>
 					</div>
+					<div class="bounced_wx_code display_none">
+						<div class="mark">
+								<span class="close">
+										x
+								</span>
+							<p>京东新用户返现公众号，请惠存</p>
+							<img id="wxCodeImg" src="/static/index/images/staff/wx_code.jpg?v=1.4" alt="">
+							<button class="save_code" >长按二维码保存到本地</button>
+						</div>
+					</div>
 				</div>
     </body>
 </html>
-<script type="text/javascript" src="/static/index/js/jquery-1.11.3.min.js?v=1.1"></script>
-<script type="text/javascript" src="/static/index/js/hqmrequest.js?v=1.1"></script>
-<script type="text/javascript" src="/static/index/js/common.js?v=1.1"></script>
-<script type="text/javascript" src="/static/index/js/staff.js?v=1.3"></script>
+<script type="text/javascript" src="/static/index/js/jquery-1.11.3.min.js?v=1.4"></script>
+<script type="text/javascript" src="/static/index/js/hqmrequest.js?v=1.4"></script>
+<script type="text/javascript" src="/static/index/js/common.js?v=1.4"></script>
+<script type="text/javascript" src="/static/index/js/staff.js?v=1.4"></script>

@@ -40,11 +40,9 @@
     box-sizing: border-box;
     background:#fff;
     border-radius: .2rem;
-
 }
 .main_list a img{
     width:100%;
-
 }
 .main_list a header{
     font-size:.3rem ;

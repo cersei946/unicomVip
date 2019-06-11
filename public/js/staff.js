@@ -74,23 +74,32 @@ $(function (){
         $('.myQrcode').on('click',function(){
             $('.bounced_vercode').removeClass('display_none');
         })
+        $('.wx_code_box').on('click',function(){
+            $('.bounced_wx_code').removeClass('display_none');
+        })
     }
     // 隐藏二维码
     staffCenter.prototype.hiddenQrCode = function (){
         $('.bounced_vercode .close').on('click',function(){
             $('.bounced_vercode').addClass('display_none');
-        })
+        });
+        $('.bounced_wx_code .close').on('click',function(){
+            $('.bounced_wx_code').addClass('display_none');
+        });
     }
     // 保存二维码
     staffCenter.prototype.saveQrCode = function (){
         $('.bounced_vercode .save_code').on('click',function(){
-            staff.savePic();
+            staff.savePic("#picurl");
+        })
+        $('.bounced_wx_code .save_code').on('click',function(){
+            staff.savePic("#wxCodeImg");
         })
     }
 
     //保存到相册
-    staffCenter.prototype.savePic = function (){         
-        var picurl= $("#picurl").attr("src");
+    staffCenter.prototype.savePic = function (imgId){         
+        var picurl= $(imgId).attr("src");
         //alert(picurl);
         savePicture(picurl);
     }
@@ -105,9 +114,6 @@ $(function (){
         a.dispatchEvent(e);
         URL.revokeObjectURL(url);
     }
-
-
-
 
 
 
